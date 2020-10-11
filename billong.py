@@ -16,8 +16,7 @@ import plotly.express as px
 from dash.exceptions import PreventUpdate
 
 
-
-#CONFIG
+# CONFIG
 # -----------------------------------------------
 config = {
         'server': 'localhost\BILLONG',
@@ -288,7 +287,7 @@ def generate_pieChart(data, title):
                     'width': '100%',
                     'opacity': '0.9'},
             figure={'data': data,                                             
-                    'layout':go.Layout( title=title,
+                    'layout': go.Layout(title=title,
                                         titlefont={'size': 12},
                                         paper_bgcolor=piechart['Papercolor'],
                                         plot_bgcolor=piechart['Papercolor'],
@@ -296,7 +295,7 @@ def generate_pieChart(data, title):
                                                     family='Helvetica',
                                                     size=12),
                                         autosize=True,
-                                        margin = go.layout.Margin(t=45, b=10, l=10, r=10, pad=1)
+                                        margin=go.layout.Margin(t=45, b=10, l=10, r=10, pad=1)
                                                                                         
                                         ),
                     }
@@ -309,6 +308,7 @@ def generate_scatterChart(search_value):
 
 # OTHER FUNCTIONS
 # -----------------------------------------------
+
 
 def select_team_pointsPie(team_location_values):        
         df = pd.pivot_table(team_location_values, index=['Location'], values=['Points'], aggfunc=sum, fill_value=0)      
@@ -358,7 +358,6 @@ def select_team_shotsPie(team_location_values):
 
 
 def select_team_points(team_values):
-        # pv = pd.pivot_table(df, index=['Team'], columns=['Location'], values=['Points'], aggfunc=sum, fill_value=0)
         df=team_values
         trace1 = go.Bar(y=df.Team, 
                         x=df.HomePoints, 
